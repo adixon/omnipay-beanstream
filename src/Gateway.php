@@ -153,4 +153,29 @@ class Gateway extends AbstractGateway
     {
         return $this->createRequest('\Omnipay\Beanstream\Message\DeleteProfileCardRequest', $parameters);
     }
+
+    /**
+     * @param array $parameters
+     * @return \Omnipay\Beanstream\Message\CreateCardRequest
+     *
+     * Similar to the createProfile method unless the action is set to purchase, in which case we
+     * have to send the profile request and create a separate request for the purchase.
+     * Uses a Response object instead of PorfileResponse object.
+     */
+    public function createCard(array $parameters = array())
+    {
+      $cardRequest = $this->createRequest('\Omnipay\Beanstream\Message\CreateCardRequest', $parameters);
+      if ($parameters['action'] == 'Purchase') {
+        $cardResponse = $cardRequest->send();
+        if (!$cardResponse->isSuccessful()) {
+          return $this->createRequest('\Omnipay\Beanstream\Message\DummyRequest', $parameters);
+        }
+        $parameters['payment_method'] = 'payment_profile';
+        $parameters['payment_profile'] = array('customer_code' => $cardResponse->getCustomerCode(), 'card_id' => 1);
+        unset($parameters['card']);
+        return $this->createRequest('\Omnipay\Beanstream\Message\PurchaseRequest', $parameters);
+      }
+      return $cardRequest;
+    }
+
 }
