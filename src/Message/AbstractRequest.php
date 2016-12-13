@@ -141,6 +141,16 @@ abstract class AbstractRequest extends \Omnipay\Common\Message\AbstractRequest
         return $this->setParameter('shipping', $value);
     }
 
+    public function getCustomerCode()
+    {
+        return $this->getParameter('cardReference');
+    }
+
+    public function setCustomerCode($value)
+    {
+        return $this->setParameter('cardReference', $value);
+    }
+
     public function getHttpMethod()
     {
         return 'POST';
