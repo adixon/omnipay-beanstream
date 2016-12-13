@@ -83,13 +83,15 @@ class GatewayTest extends GatewayTestCase
             'province' => 'bc',
             'postal_code' => 'H0H0H0',
             'phone_number' => '1 (555) 555-5555'
-            ), $request->getBilling()
+            ),
+            $request->getBilling()
         );
         $this->assertSame(
             array(
             'name' => 'token-test-name',
             'code' => 'token-test-code'
-            ), $request->getToken()
+            ),
+            $request->getToken()
         );
         $this->assertSame('POST', $request->getHttpMethod());
     }

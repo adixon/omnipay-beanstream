@@ -75,7 +75,7 @@ class Response extends AbstractResponse
     {
         if (isset($this->data['customer_code'])) {
             return $this->data['customer_code'];
-        }      
+        }
         if ($customer_code = $this->request->getCustomerCode()) {
             return $customer_code;
         }

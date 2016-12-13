@@ -80,5 +80,4 @@ class CreateCardRequest extends AbstractRequest
 
         return $data;
     }
-
 }

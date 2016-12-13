@@ -181,5 +181,4 @@ class Gateway extends AbstractGateway
         }
         return $cardRequest;
     }
-
 }

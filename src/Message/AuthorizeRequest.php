@@ -73,8 +73,7 @@ class AuthorizeRequest extends AbstractRequest
         if ($this->getPaymentProfile()) {
             $data['payment_profile'] = $this->getPaymentProfile();
             $data['payment_profile']['complete'] = $this->complete;
-        }
-        elseif ($this->getCustomerCode()) {
+        } elseif ($this->getCustomerCode()) {
             $data['payment_profile'] = array(
                 'customer_code' => $this->getCustomerCode(),
                 'card_id' => 1,

@@ -2,7 +2,6 @@
 
 namespace Omnipay\Beanstream\Message;
 
-
 /**
  * Dummy Response
  *
