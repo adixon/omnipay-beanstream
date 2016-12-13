@@ -169,7 +169,7 @@ class Gateway extends AbstractGateway
     public function createCard(array $parameters = array())
     {
         $cardRequest = $this->createRequest('\Omnipay\Beanstream\Message\CreateCardRequest', $parameters);
-        if (!empty($parameters['action']) && (parameters['action'] == 'Purchase')) {
+        if (!empty($parameters['action']) && ($parameters['action'] == 'Purchase')) {
             $cardResponse = $cardRequest->send();
             if (!$cardResponse->isSuccessful()) {
                 return $this->createRequest('\Omnipay\Beanstream\Message\DummyRequest', $parameters);
