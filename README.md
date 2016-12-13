@@ -2,7 +2,9 @@
 
 **Beanstream payment processing driver for the Omnipay PHP payment processing library**
 
-[![Build Status](https://travis-ci.org/lemonstand/omnipay-beanstream.svg)](https://travis-ci.org/lemonstand/omnipay-beanstream) [![Coverage Status](https://coveralls.io/repos/github/lemonstand/omnipay-beanstream/badge.svg?branch=master)](https://coveralls.io/github/lemonstand/omnipay-beanstream?branch=master) [![Latest Stable Version](https://poser.pugx.org/lemonstand/omnipay-beanstream/v/stable.svg)](https://packagist.org/packages/lemonstand/omnipay-beanstream) [![Total Downloads](https://poser.pugx.org/lemonstand/omnipay-beanstream/downloads)](https://packagist.org/packages/lemonstand/omnipay-beanstream)
+This is a custom fork for CiviCRM's omnipaymultiprocessor.
+
+[![Build Status](https://travis-ci.org/adixon/omnipay-beanstream.svg)](https://travis-ci.org/adixon/omnipay-beanstream)
 
 [Omnipay](https://github.com/thephpleague/omnipay) is a framework agnostic, multi-gateway payment
 processing library for PHP 5.3+. This package implements Beanstream support for Omnipay. Please see the [Beanstream Developer Portal](http://developer.beanstream.com/) for more information.
