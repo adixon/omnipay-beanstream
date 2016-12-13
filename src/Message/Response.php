@@ -8,9 +8,8 @@ class Response extends AbstractResponse
     /* Cover separate cases for profile request vs. purchase request */
     public function isSuccessful()
     {
-        if ($this->request->getEndpoint() == 'https://www.beanstream.com/api/v1/profiles') {
-            return (isset($this->data['message']) && $this->data['message'] === "Operation Successful")
-            && (isset($this->data['code']) && $this->data['code'] === 1);
+        if (isset($this->data['message']) && ($this->data['message'] === "Operation Successful")) {
+            return (isset($this->data['code']) && $this->data['code'] === 1);
         }
         return (isset($this->data['approved']) && $this->data['approved'] === "1");
     }
