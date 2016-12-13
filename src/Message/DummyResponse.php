@@ -7,13 +7,12 @@ namespace Omnipay\Beanstream\Message;
  * Dummy Response
  *
  * This is the response class for dummy requests.
- *
  */
 class DummyResponse extends \Omnipay\Common\Message\AbstractResponse
 {
     public function isSuccessful()
     {
-        return FALSE;
+        return false;
     }
 
     public function getTransactionReference()

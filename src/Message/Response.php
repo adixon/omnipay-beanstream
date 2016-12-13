@@ -9,7 +9,7 @@ class Response extends AbstractResponse
     public function isSuccessful()
     {
         if ($this->request->getEndpoint() == 'https://www.beanstream.com/api/v1/profiles') {
-          return (isset($this->data['message']) && $this->data['message'] === "Operation Successful")
+            return (isset($this->data['message']) && $this->data['message'] === "Operation Successful")
             && (isset($this->data['code']) && $this->data['code'] === 1);
         }
         return (isset($this->data['approved']) && $this->data['approved'] === "1");
@@ -73,14 +73,14 @@ class Response extends AbstractResponse
     /* Cover separate cases for profile request vs. purchase request */
     public function getCardReference()
     {
-      if (isset($this->data['customer_code'])) {
-        return $this->data['customer_code'];
-      }      
-      if ($customer_code = $this->request->getCustomerCode()) {
-        return $customer_code;
-      }
-      if ($payment_profile = $this->request->getPaymentProfile()) {
-        return $payment_profile['customer_code'];
-      }
+        if (isset($this->data['customer_code'])) {
+            return $this->data['customer_code'];
+        }      
+        if ($customer_code = $this->request->getCustomerCode()) {
+            return $customer_code;
+        }
+        if ($payment_profile = $this->request->getPaymentProfile()) {
+            return $payment_profile['customer_code'];
+        }
     }
 }

@@ -80,7 +80,7 @@ class AuthorizeRequest extends AbstractRequest
                 'card_id' => 1,
                 'complete' => $this->complete,
             );
-       }
+        }
 
         if ($this->getToken()) {
             $data['token'] = $this->getToken();

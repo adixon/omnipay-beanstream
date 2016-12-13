@@ -80,8 +80,8 @@ class Gateway extends AbstractGateway
     public function purchase(array $parameters = array())
     {
         if (isset($parameters['cardReference'])) {
-          $parameters['payment_method'] = 'payment_profile';
-          unset($parameters['card']);
+            $parameters['payment_method'] = 'payment_profile';
+            unset($parameters['card']);
         }
         return $this->createRequest('\Omnipay\Beanstream\Message\PurchaseRequest', $parameters);
     }
@@ -168,18 +168,18 @@ class Gateway extends AbstractGateway
      */
     public function createCard(array $parameters = array())
     {
-      $cardRequest = $this->createRequest('\Omnipay\Beanstream\Message\CreateCardRequest', $parameters);
-      if ($parameters['action'] == 'Purchase') {
-        $cardResponse = $cardRequest->send();
-        if (!$cardResponse->isSuccessful()) {
-          return $this->createRequest('\Omnipay\Beanstream\Message\DummyRequest', $parameters);
+        $cardRequest = $this->createRequest('\Omnipay\Beanstream\Message\CreateCardRequest', $parameters);
+        if ($parameters['action'] == 'Purchase') {
+            $cardResponse = $cardRequest->send();
+            if (!$cardResponse->isSuccessful()) {
+                return $this->createRequest('\Omnipay\Beanstream\Message\DummyRequest', $parameters);
+            }
+            $parameters['payment_method'] = 'payment_profile';
+            $parameters['cardReference'] = $cardResponse->getCustomerCode();
+            unset($parameters['card']);
+            return $this->createRequest('\Omnipay\Beanstream\Message\PurchaseRequest', $parameters);
         }
-        $parameters['payment_method'] = 'payment_profile';
-        $parameters['cardReference'] = $cardResponse->getCustomerCode();
-        unset($parameters['card']);
-        return $this->createRequest('\Omnipay\Beanstream\Message\PurchaseRequest', $parameters);
-      }
-      return $cardRequest;
+        return $cardRequest;
     }
 
 }
