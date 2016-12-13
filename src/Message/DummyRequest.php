@@ -2,12 +2,10 @@
 
 namespace Omnipay\Beanstream\Message;
 
-use Omnipay\Common\Message\AbstractRequest;
-
 /* 
  * Used for faking requests after failed attempts at profile operations.
  */
-class DummyRequest extends AbstractRequest
+class DummyRequest extends \Omnipay\Common\Message\AbstractRequest
 {
     public function getData()
     {

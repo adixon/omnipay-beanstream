@@ -2,7 +2,6 @@
 
 namespace Omnipay\Beanstream\Message;
 
-use Omnipay\Common\Message\AbstractResponse;
 
 /**
  * Dummy Response
@@ -10,7 +9,7 @@ use Omnipay\Common\Message\AbstractResponse;
  * This is the response class for dummy requests.
  *
  */
-class DummyResponse extends AbstractResponse
+class DummyResponse extends \Omnipay\Common\Message\AbstractResponse
 {
     public function isSuccessful()
     {
